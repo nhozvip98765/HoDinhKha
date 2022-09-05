@@ -1,0 +1,48 @@
+<div class="input_infor_pro">
+    <form action="" #formProduct="ngForm" (submit)="putProduct_API(formProduct)" method="post">
+        <p>Edit product</p>
+        <div class="input_name_pro">
+            <span>Name product :</span><br>
+            <input type="text" name="name" #nameProduct="ngModel" [(ngModel)]="product_edit.name" required minlength="1" placeholder="Name product">
+            <div *ngIf="nameProduct.invalid && nameProduct.dirty" >
+                <strong *ngIf="nameProduct?.errors?.['required']" style="color: rgb(241, 57, 57);">Bạn cần nhập tên sản phẩm</strong>
+                <strong *ngIf="nameProduct?.errors?.['minlength']" style="color: rgb(245, 119, 119);">Phải lớn hơn 5 ký tự</strong>
+            </div>
+            <div>Name old: {{pro.name}}</div>
+        </div> 
+        <div class="input_name_pro">
+            <span>Price product :</span><br>
+            <input type="text" #priceProduct="ngModel"  [(ngModel)]="product_edit.price" name="price" required minlength="1" placeholder="Price product">
+            <div *ngIf="priceProduct.invalid && priceProduct.dirty" >
+                <strong *ngIf="priceProduct?.errors?.['required']" style="color: rgb(241, 57, 57);">Bạn cần nhập giá sản phẩm</strong>
+                <strong *ngIf="priceProduct?.errors?.['minlength']" style="color: rgb(245, 119, 119);">Phải lớn hơn 5 ký tự</strong>
+            </div>
+            <div>Price old: {{pro.price}}</div>
+        </div>
+        <div class="input_name_pro">
+            <span>Image product :</span><br>
+            <input type="text" name="text" [(ngModel)]="product_edit.image" #image="ngModel"  placeholder="Image product" >
+            <div style="margin-top: 10px;">Image old:<img src="../../../../assets/images/{{pro.image}}" style="width: 120px; height:100% ;" alt=""> Name:{{pro.image}}</div>
+        </div>
+        <div class="input_name_pro">
+            <span>Amount product :</span><br>
+            <input type="text" name="amount" [(ngModel)]="product_edit.amount"  #amountProduct="ngModel" required minlength="1" placeholder="Amount product">
+            <div *ngIf="amountProduct.invalid && amountProduct.dirty" >
+                <strong *ngIf="amountProduct?.errors?.['required']" style="color: rgb(241, 57, 57);">Bạn cần nhập số lượng</strong>
+                <strong *ngIf="amountProduct?.errors?.['minlength']" style="color: rgb(245, 119, 119);">Phải lớn hơn 5 ký tự</strong>
+            </div>
+            <div>Amount old: {{pro.amount}}</div>
+        </div>
+        <div class="input_name_pro">
+            <span>Sale product :</span><br>
+            <input type="text" name="sale" #saleProduct="ngModel" [(ngModel)]="product_edit.sale"  required minlength="1" placeholder="Sale about %">
+            <div *ngIf="saleProduct.invalid && saleProduct.dirty" >
+                <strong *ngIf="saleProduct?.errors?.['required']" style="color: rgb(241, 57, 57);">Bạn cần nhập phần trăm giảm giá</strong>
+                <strong *ngIf="saleProduct?.errors?.['minlength']" style="color: rgb(245, 119, 119);">Phải lớn hơn 5 ký tự</strong>
+            </div>
+            <div>Sale old: {{pro.sale}}</div>
+        </div>
+        <br>
+        <button type="submit" name="submit" class="btn btn-info">Add</button>
+    </form>
+</div>
